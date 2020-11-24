@@ -1,18 +1,28 @@
-import { Button } from "antd";
+import { Button, Checkbox } from "antd";
 import React, { useState, useEffect } from "react";
 import "./index.less";
 
 export const List = ({ data }) => {
   const [value, setValue] = useState("");
+  const [check, setCheck] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [counter, setCounter] = useState([]);
 
   const handleOnChange = (e) => {
     setValue(e.target.value);
   };
 
+  const handleOnCheck = (e, i) => {
+    if (e.target.checked) {
+      setCounter([...counter, i]);
+    } else {
+      setCounter(counter.filter(c=> c.id !== i.id));
+    }
+  };
+
   useEffect(() => {
-    const results = data.filter(d =>
-      d.indexName.includes(value)
+    const results = data.filter((d) =>
+      d.indexName.toLowerCase().includes(value)
     );
     setSearchResults(results);
   }, [value]);
@@ -33,6 +43,9 @@ export const List = ({ data }) => {
               <div className="item">
                 <div>{i.indexName}</div>
                 <div>{i.indexSize}</div>
+                <div>
+                  <Checkbox onChange={(e) => handleOnCheck(e, i)} />
+                </div>
               </div>
             );
           })}
