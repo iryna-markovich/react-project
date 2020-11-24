@@ -1,13 +1,21 @@
 import { Button } from "antd";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.less";
 
 export const List = ({ data }) => {
   const [value, setValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleOnChange = (e) => {
     setValue(e.target.value);
   };
+
+  useEffect(() => {
+    const results = data.filter(d =>
+      d.indexName.includes(value)
+    );
+    setSearchResults(results);
+  }, [value]);
 
   return (
     <div className="container">
@@ -20,7 +28,7 @@ export const List = ({ data }) => {
       </div>
       <div className="list-container">
         <div className="list">
-          {data.map((i) => {
+          {searchResults.map((i) => {
             return (
               <div className="item">
                 <div>{i.indexName}</div>
