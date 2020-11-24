@@ -101,7 +101,7 @@ export const mockData = [
     id: 15,
     date: new Date(),
     indexName: "Item5",
-    indexSize: 12,
+    indexSize: 400,
     indexState: "active",
   },
 ];

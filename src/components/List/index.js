@@ -1,5 +1,7 @@
 import { Button, Checkbox } from "antd";
 import React, { useState, useEffect } from "react";
+import { Bar } from "../Bar";
+import { DatePicker } from "../DatePicker";
 import "./index.less";
 
 export const List = ({ data }) => {
@@ -16,7 +18,7 @@ export const List = ({ data }) => {
     if (e.target.checked) {
       setCounter([...counter, i]);
     } else {
-      setCounter(counter.filter(c=> c.id !== i.id));
+      setCounter(counter.filter((c) => c.id !== i.id));
     }
   };
 
@@ -28,30 +30,34 @@ export const List = ({ data }) => {
   }, [value]);
 
   return (
-    <div className="container">
-      <div className="header">
-        <input
-          value={value}
-          placeholder="search..."
-          onChange={handleOnChange}
-        />
-      </div>
-      <div className="list-container">
-        <div className="list">
-          {searchResults.map((i) => {
-            return (
-              <div className="item">
-                <div>{i.indexName}</div>
-                <div>{i.indexSize}</div>
-                <div>
-                  <Checkbox onChange={(e) => handleOnCheck(e, i)} />
+    <>
+      <div className="row">
+        <DatePicker />
+        <div className="list-container">
+          <div className="header">
+            <input
+              value={value}
+              placeholder="search..."
+              onChange={handleOnChange}
+            />
+          </div>
+          <div className="list">
+            {searchResults.map((i) => {
+              return (
+                <div className="item">
+                  <div>{i.indexName}</div>
+                  <div>{i.indexSize}</div>
+                  <div>
+                    <Checkbox onChange={(e) => handleOnCheck(e, i)} />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <Button type="primary">Restore</Button>
         </div>
       </div>
-      <Button type="primary">Restore</Button>
-    </div>
+      <Bar space={counter} />
+    </>
   );
 };
