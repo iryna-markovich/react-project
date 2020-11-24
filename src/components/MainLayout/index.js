@@ -1,17 +1,18 @@
-import React from 'react';
-import { DatePicker } from '../DatePicker';
-import { List } from '../List';
-import { Bar } from '../Bar';
-import { IndexState } from '../IndexState';
+import React from "react";
+import { DatePicker } from "../DatePicker";
+import { List } from "../List";
+import { Bar } from "../Bar";
+import { IndexState } from "../IndexState";
+import { mockData } from "../../mockData";
 
-import './index.less';
+import "./index.less";
 
 export const MainLayout = () => {
   return (
     <div className="layout">
       <div className="row">
         <DatePicker />
-        <List />
+        <List data={mockData}/>
       </div>
       <div>
         <Bar />
