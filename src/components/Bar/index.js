@@ -3,26 +3,26 @@ import React from "react";
 import "./index.less";
 
 export const Bar = ({ space }) => {
-  const res = [];
+  // const res = [];
 
-  space.map((s) => {
-    res.push(s.indexSize);
-  });
+  // space.map((s) => {
+  //   res.push(s.indexSize);
+  // });
 
-  const styleWidth = () => {
-    let loadedSpace = res.reduce((a, b) => a + b, 0)
-    if (loadedSpace > 500) {
-      alert("No space available")
-      return loadedSpace = 500;
-    }
-    else return loadedSpace;
-  };
+  // const styleWidth = () => {
+  //   let loadedSpace = res.reduce((a, b) => a + b, 0)
+  //   if (loadedSpace > 500) {
+  //     alert("No space available")
+  //     return loadedSpace = 500;
+  //   }
+  //   else return loadedSpace;
+  // };
 
   return (
     <div className="bar-container">
       <h3>Free space is available</h3>
-      <div class="bar">
-        <div class="sector" style={{ width: styleWidth() }}></div>
+      <div className="bar">
+        <div className="sector"></div>
       </div>
     </div>
   );

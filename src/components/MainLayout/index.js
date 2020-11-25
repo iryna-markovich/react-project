@@ -1,5 +1,6 @@
 import React from "react";
-import { List } from "../List";
+import { Calendar } from "../Calendar";
+import { Bar } from "../Bar";
 import { IndexState } from "../IndexState";
 import { mockData } from "../../mockData";
 
@@ -8,8 +9,9 @@ import "./index.less";
 export const MainLayout = () => {
   return (
     <div className="layout">
-        <List data={mockData}/>
+      <Calendar data={mockData} />
       <div>
+        <Bar />
         <IndexState />
       </div>
     </div>

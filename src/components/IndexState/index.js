@@ -33,7 +33,7 @@ export const IndexState = () => {
       <div className="table">
         {stateList.map((i) => {
           return (
-            <div className="table-row">
+            <div key={i.id} className="table-row">
               <div>{getStatus(i.name)}</div>
               <div>{i.date}</div>
               <div>{getAction(i.date)}</div>
