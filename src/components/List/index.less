@@ -1,22 +1,26 @@
 .list {
-  border: 1px solid #989898;
   border-radius: 2px;
   margin-right: 20px;
-  width: 400px;
+  display: flex;
+  width: 100%;
   overflow: auto;
-  margin-top: 50px;
+  margin-top: 40px;
+}
+
+.list > div {
+  width: 100%;
+}
+
+.list-container {
+  margin: 20px 20px 0;
+  display: flex;
+  width: 70%;
 }
 
 .header {
   position: absolute;
   background: white;
-  padding: 10px 0;
   width: 400px;
-}
-
-.header input {
-  margin: 0;
-  padding: 0;
 }
 
 .item {
@@ -34,14 +38,19 @@
   cursor: pointer;
 }
 
-.list-container {
-  margin: 20px 20px 20px 60px;
-  display: flex;
-}
-
-
 .row {
   display: flex;
   flex-direction: row;
-  height: 400px;
+  min-height: 530px;
+}
+
+.calendar {
+  margin-right: 20px;
+}
+
+.calendar-container {
+  display: flex;
+  margin: 20px 40px 0;
+  width: 30%;
+  min-width: 560px;
 }

@@ -22,7 +22,10 @@ export const Bar = ({ space }) => {
     <div className="bar-container">
       <h3>Free space is available</h3>
       <div className="bar">
-        <div className="sector"></div>
+        <div className="sector1"></div>
+      </div>
+      <div className="bar">
+        <div className="sector2"></div>
       </div>
     </div>
   );
